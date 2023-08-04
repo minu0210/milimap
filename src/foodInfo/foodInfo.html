@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>급식정보</title>
+    <link rel="stylesheet" href="./foodInfo.css" />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./foodInfo.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html">
+        <img src="../resource/back.png" alt="backIcon" />
+      </a>
+      <h2>급식정보</h2>
+      <p>오늘의 급식을 확인해보세요</p>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>급식</th>
+            <th>식단</th>
+            <th>칼로리</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+div {
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  border-radius: 7px;
+  background-color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #eeeeee;
+}
+
+button:active {
+  background-color: #778899;
+}
+
+.back-image {
+  width: 45px;
+  height: 62px;
+  position: absolute;
+  left: 50px;
+  top: 30px;
+  background-image: url('#');
+}
+
+button.selected {
+  background-color: #778899;
+  color: white;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-row {
+  display: flex;
+}
+
+.product-item {
+  text-align: center;
+  width: 160px;
+  height: 200px;
+  border-radius: 50px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.25);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+}
+
+.product-name {
+  margin-top: 5px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.product-hot {
+  font-weight: bold;
+  color: red;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+h1,
+p {
+  margin-left: 155px;
+  margin-top: 20px;
+  margin-bottom: px;
+}
+
+h1 {
+  margin-top: 96px;
+}
+
+button#back-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.product-item .ca-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #555;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.top-btn i {
+  pointer-events: none;
+}
