@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마음의 편지</title>
+    <link rel="stylesheet" href="./ex.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init('TOLpzts8O2YpI56FD');
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html"
+        ><img src="../resource/back.png" alt="backIcon"
+      /></a>
+
+      <h2>마음의 편지</h2>
+
+      <p>군 생활 중 고충이나 불편사항, 건의사항을 입력하세요</p>
+
+      <form>
+        <ul>
+          <li>
+            <label for="title">제목</label>
+            <input
+              type="text"
+              class="clear"
+              id="title"
+              placeholder="제목을 입력하세요"
+              required
+            />
+          </li>
+          <li>
+            <label for="content">내용</label>
+
+            <textarea
+              class="clear"
+              id="content"
+              rows="4"
+              cols="50"
+              placeholder="내용을 입력하세요"
+              required
+            ></textarea>
+          </li>
+        </ul>
+        <div class="btnWrap">
+          <!-- <input class="button" type="reset" value="취소" /> -->
+          <input class="button" type="button" value="전송" id="send" />
+        </div>
+      </form>
+      <div class="nullPopup">
+        <p>빈 값은 전송할 수 없습니다</p>
+      </div>
+      <div class="successPopup">
+        <p>전송되었습니다</p>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const sendButton = document.querySelector('#send');
+    const clearInput = document.querySelectorAll('.clear');
+    const body = document.querySelector('body');
+    const nullPopup = document.querySelector('.nullPopup');
+    const successPopup = document.querySelector('.successPopup');
+
+    sendButton.addEventListener('click', (e) => {
+      sendMail();
+      e.preventDefault();
+    });
+
+    // body.addEventListener('keyup', (e) => {
+    //   if (e.keyCode === 13) sendMail();
+    // });
+
+    function sendMail() {
+      if (clearInput[0].value === '' || clearInput[1].value === '') {
+        // alert('빈 값');
+        nullPopup.style.top = '14%';
+        setTimeout(() => {
+          nullPopup.style.top = '-14%';
+        }, 1000);
+      } else {
+        const params = {
+          title: document.getElementById('title').value,
+          content: document.getElementById('content').value,
+        };
+
+        emailjs
+          .send('service_6nt1nuh', 'template_an0i9ro', params)
+          .then(function (res) {
+            // alert('전송되었습니다');
+            successPopup.style.top = '14%';
+            setTimeout(() => {
+              successPopup.style.top = '-14%';
+            }, 1000);
+          });
+
+        clearInput.forEach((el) => {
+          el.value = '';
+        });
+      }
+    }
+  </script>
+</html>

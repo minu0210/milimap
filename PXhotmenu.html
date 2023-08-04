@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PX 인기상품</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <button type="button" id="back-btn">
+      <a href="./src/index.html">
+        <img class="back-image" src="img/back.png" />
+      </a>
+    </button>
+
+    <h1>PX 인기상품</h1>
+    <p>이달의 PX 인기상품을 만나보세요.</p>
+
+    <div>
+      <button id="all-btn" class="selected">전체</button>
+      <button id="food">음식류</button>
+      <button id="milk">우유/유제품</button>
+      <button id="water">생수/음료/커피</button>
+      <button id="cold">냉장/냉동식품</button>
+      <button id="health">건강</button>
+      <button id="bakery">베이커리</button>
+      <button id="daily">생활용품</button>
+      <button id="alcohol">면세주류</button>
+      <button id="beauty">뷰티</button>
+      <button id="instant">면류/통조림</button>
+      <button id="snack">간식/과자</button>
+      <button id="seasoning">양념</button>
+    </div>
+
+    <div class="container">
+      <div id="product-container" class="product-grid"></div>
+    </div>
+
+    <div id="top-btn" class="top-btn">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>

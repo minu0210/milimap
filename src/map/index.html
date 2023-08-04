@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>길찾기</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <a class="back" href="../index.html"
+        ><img src="../resource/back.png" alt="backIcon"
+      /></a>
+      <header>
+        <h1>
+          <a href="#"><img src="./image.png" alt="logo" /></a>
+        </h1>
+        <nav>
+          <ul class="Main">
+            <li class="Sub">
+              <a href="#" class="division" onclick="setCenter()">부대찾기</a>
+            </li>
+            <li class="Sub_2">
+              <a href="#" class="training" onclick="setCenter()">훈련소 찾기</a>
+            </li>
+            <li class="Sub_3">
+              <a href="#" class="judgment" onclick="setCenter()"
+                >병역 판정검사소 찾기</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div id="map"></div>
+      <div class="marker-buttons">
+        <div class="sadan">
+          <p>사단검색하기</p>
+          <button
+            class="btn marker-button division"
+            data-title="1사단"
+            data-lat="37.8667237706048"
+            data-lng="126.81644491571821"
+          >
+            1사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="3사단"
+            data-lat="38.2004119"
+            data-lng="127.423857"
+          >
+            3사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="5사단"
+            data-lat="38.0229686"
+            data-lng="127.108939"
+          >
+            5사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="6사단"
+            data-lat="38.1416750765861"
+            data-lng="127.216742777642"
+          >
+            6사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="7사단"
+            data-lat="38.1875842"
+            data-lng="127.756119"
+          >
+            7사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="9사단"
+            data-lat="37.7023833"
+            data-lng="126.796908"
+          >
+            9사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="12사단"
+            data-lat="38.1555462"
+            data-lng="128.204858"
+          >
+            12사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="15사단"
+            data-lat="38.0441685"
+            data-lng="127.497734"
+          >
+            15사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="21사단"
+            data-lat="38.1169754"
+            data-lng="128.040217"
+          >
+            21사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="25사단"
+            data-lat="37.8904188"
+            data-lng="126.955261"
+          >
+            25사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="28사단"
+            data-lat="37.9795212"
+            data-lng="126.998571"
+          >
+            28사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="31사단"
+            data-lat="35.1943965"
+            data-lng="126.906854"
+          >
+            31사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="32사단"
+            data-lat="36.4261676"
+            data-lng="127.265855"
+          >
+            32사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="35사단"
+            data-lat="38.0229686"
+            data-lng="127.108939"
+          >
+            35사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="36사단"
+            data-lat="37.3860504"
+            data-lng="127.976255"
+          >
+            36사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="37사단"
+            data-lat="36.7957225"
+            data-lng="127.558144"
+          >
+            37사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="39사단"
+            data-lat="35.2718812"
+            data-lng="128.356916"
+          >
+            39사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="50사단"
+            data-lat="35.9555618"
+            data-lng="128.567838"
+          >
+            50사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="51사단"
+            data-lat="37.2533463"
+            data-lng="126.920360"
+          >
+            51사단으로 이동
+          </button>
+          <button
+            class="btn marker-button division"
+            data-title="55사단"
+            data-lat="37.2723595"
+            data-lng="127.222537"
+          >
+            55사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="육군훈련소"
+            data-lat="36.1052567"
+            data-lng="127.097158"
+          >
+            육군훈련소로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="해병대훈련단"
+            data-lat="35.9751951"
+            data-lng="129.418289"
+          >
+            해병대훈련단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="해군교육사령부"
+            data-lat="35.1486735"
+            data-lng="128.684987"
+          >
+            해군교육사령부로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="공군교육사령부"
+            data-lat="35.2039853"
+            data-lng="128.144167"
+          >
+            공군교육사령부로 이동
+          </button>
+        </div>
+
+        <div class="gnsfusth">
+          <p>훈련소 찾기</p>
+          <button
+            class="btn marker-button training"
+            data-title="해병9여단"
+            data-lat="33.2303972"
+            data-lng="126.262397"
+          >
+            해병9여단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="해군 기초군사학교"
+            data-lat="35.1472139"
+            data-lng="128.684309"
+          >
+            해군 기초군사학교로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="31사단"
+            data-lat="35.1943965"
+            data-lng="126.906854"
+          >
+            31사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="32사단"
+            data-lat="36.4261676"
+            data-lng="127.265855"
+          >
+            32사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="35사단"
+            data-lat="38.0229686"
+            data-lng="127.108939"
+          >
+            35사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="36사단"
+            data-lat="37.3860504"
+            data-lng="127.976255"
+          >
+            36사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="37사단"
+            data-lat="36.7957225"
+            data-lng="127.558144"
+          >
+            37사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="50사단"
+            data-lat="35.9555618"
+            data-lng="128.567838"
+          >
+            50사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="51사단"
+            data-lat="37.2533463"
+            data-lng="126.920360"
+          >
+            51사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="55사단"
+            data-lat="37.2723595"
+            data-lng="127.222537"
+          >
+            55사단으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="육군훈련소"
+            data-lat="36.1052567"
+            data-lng="127.097158"
+          >
+            육군훈련소로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="해병대훈련단"
+            data-lat="35.9751951"
+            data-lng="129.418289"
+          >
+            해병대훈련단으로 이동
+          </button>
+        </div>
+
+        <div class="tlsrja">
+          <p>병역판정검사장</p>
+          <button
+            class="btn marker-button training"
+            data-title="서울병역판정검사장"
+            data-lat="37.5561768"
+            data-lng="126.9743835"
+          >
+            서울병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="대구·경북지방병무청"
+            data-lat="35.8772064"
+            data-lng="128.734582"
+          >
+            대구·경북지방병무청으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="경인지방병무청 병역판정검사장"
+            data-lat="37.2802067"
+            data-lng="127.007336"
+          >
+            경인지방병무청 병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="광주·전남지방병무청 병역판정검사장"
+            data-lat="35.1406049"
+            data-lng="126.920984"
+          >
+            광주·전남지방병무청 병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="대전·충남지방병무청 병역판정검사장"
+            data-lat="36.3221771"
+            data-lng="127.413861"
+          >
+            대전·충남지방병무청 병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="강원지방병무청 병역판정검사장"
+            data-lat="37.5051436"
+            data-lng="126.918223"
+          >
+            강원지방병무청 병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="충북지방병무청 병역판정검사장"
+            data-lat="36.6316254"
+            data-lng="127.478361"
+          >
+            충북지방병무청 병역판정검사장으로 이동
+          </button>
+          <button
+            class="btn marker-button training"
+            data-title="전북지방병무청 병역판정검사장"
+            data-lat="35.8205158"
+            data-lng="127.154457"
+          >
+            전북지방병무청 병역판정검사장으로 이동
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=147efd2c842a6240d755d9bafb3c7c4b"
+    ></script>
+    <script>
+      var mapOptions = {
+        center: new kakao.maps.LatLng(37.4954559, 127.0379305),
+        level: 13,
+      };
+
+      var map = new kakao.maps.Map(document.getElementById('map'), mapOptions);
+
+      // 마커 이미지 설정
+      const imageSize = new kakao.maps.Size(30, 35);
+      const markerImageDivision = new kakao.maps.MarkerImage(
+        'https://cdn.discordapp.com/attachments/1127892625467379786/1136452071504216134/2_-removebg-preview.png',
+        imageSize,
+      );
+      const markerImageTraining = new kakao.maps.MarkerImage(
+        'https://cdn.discordapp.com/attachments/1127892625467379786/1136453201357451324/3_1.png',
+        imageSize,
+      );
+      const markerImageJudgment = new kakao.maps.MarkerImage(
+        'https://cdn.discordapp.com/attachments/1127892625467379786/1136653132861018213/images__1_-removebg-preview-fococlipping-standard.png',
+        imageSize,
+      );
+
+      const markersDivision = [];
+      const markersTraining = [];
+      const markersJudgment = [];
+
+      // 부대 마커들 표시 함수
+      function showDivisionMarkers() {
+        for (let i = 0; i < markersDivision.length; i++) {
+          markersDivision[i].setMap(map);
+        }
+      }
+
+      function showTrainingMarkers() {
+        for (let i = 0; i < markersTraining.length; i++) {
+          markersTraining[i].setMap(map);
+        }
+      }
+
+      function showJudgmentMarkers() {
+        for (let i = 0; i < markersJudgment.length; i++) {
+          markersJudgment[i].setMap(map);
+        }
+      }
+
+      function hideAllMarkers() {
+        for (let i = 0; i < markersDivision.length; i++) {
+          markersDivision[i].setMap(null);
+        }
+        for (let i = 0; i < markersTraining.length; i++) {
+          markersTraining[i].setMap(null);
+        }
+        for (let i = 0; i < markersJudgment.length; i++) {
+          markersJudgment[i].setMap(null);
+        }
+      }
+
+      function setMapLevelAndCenter(level, lat, lng) {
+        map.setLevel(level);
+        var moveLatLon = new kakao.maps.LatLng(lat, lng);
+        map.setCenter(moveLatLon);
+      }
+
+      document
+        .querySelector('.division')
+        .addEventListener('click', function () {
+          setMapLevelAndCenter(13, 36.9712232, 127.927918);
+        });
+
+      document
+        .querySelector('.training')
+        .addEventListener('click', function () {
+          setMapLevelAndCenter(13, 36.9712232, 127.927918);
+        });
+
+      document
+        .querySelector('.judgment')
+        .addEventListener('click', function () {
+          setMapLevelAndCenter(13, 36.9712232, 127.927918);
+        });
+
+      function handleButtonClick(lat, lng) {
+        const zoomLevel = 3; // 확대 레벨을 적절히 조정
+        map.setLevel(zoomLevel);
+        map.panTo(new kakao.maps.LatLng(lat, lng));
+      }
+
+      // 모든 버튼에 대한 클릭 이벤트 리스너 등록
+      const buttons = document.querySelectorAll('.marker-button');
+      buttons.forEach((button) => {
+        button.addEventListener('click', function () {
+          const lat = parseFloat(button.dataset.lat);
+          const lng = parseFloat(button.dataset.lng);
+          handleButtonClick(lat, lng);
+        });
+      });
+
+      document
+        .querySelector('.division')
+        .addEventListener('click', function () {
+          hideAllMarkers();
+          showDivisionMarkers();
+        });
+
+      document
+        .querySelector('.training')
+        .addEventListener('click', function () {
+          hideAllMarkers();
+          showTrainingMarkers();
+        });
+
+      document
+        .querySelector('.judgment')
+        .addEventListener('click', function () {
+          hideAllMarkers();
+          showJudgmentMarkers();
+        });
+
+      function createMarker(position, title, image) {
+        var marker = new kakao.maps.Marker({
+          position: position,
+          title: title,
+          image: image,
+        });
+
+        // Add a click event listener to the marker
+        kakao.maps.event.addListener(marker, 'click', function () {
+          var moveLatLng = marker.getPosition();
+          map.setCenter(moveLatLng);
+          map.setLevel(5);
+
+          // Open a new window with the KakaoMap URL
+          var url =
+            'https://map.kakao.com/link/to/' +
+            encodeURIComponent(title) +
+            ',' +
+            moveLatLng.getLat() +
+            ',' +
+            moveLatLng.getLng();
+          window.open(url);
+        });
+
+        return marker;
+      }
+      var positionsDivision = [
+        {
+          title: '1사단',
+          latlng: new kakao.maps.LatLng(37.8667237706048, 126.81644491571821),
+        },
+        {
+          title: '3사단',
+          latlng: new kakao.maps.LatLng(38.2004119, 127.423857),
+        },
+        {
+          title: '5사단',
+          latlng: new kakao.maps.LatLng(38.0229686, 127.108939),
+        },
+        {
+          titl: '6사단',
+          latlng: new kakao.maps.LatLng(38.1416750765861, 127.216742777642),
+        },
+        {
+          title: '7사단',
+          latlng: new kakao.maps.LatLng(38.1875842, 127.756119),
+        },
+        {
+          title: '9사단',
+          latlng: new kakao.maps.LatLng(37.7023833, 126.796908),
+        },
+        {
+          title: '12사단',
+          latlng: new kakao.maps.LatLng(38.1555462, 128.204858),
+        },
+        {
+          title: '15사단',
+          latlng: new kakao.maps.LatLng(38.0441685, 127.497734),
+        },
+        {
+          title: '21사단',
+          latlng: new kakao.maps.LatLng(38.1169754, 128.040217),
+        },
+        {
+          title: '25사단',
+          latlng: new kakao.maps.LatLng(37.8904188, 126.955261),
+        },
+        {
+          title: '28사단',
+          latlng: new kakao.maps.LatLng(37.9795212, 126.998571),
+        },
+        {
+          title: '31사단',
+          latlng: new kakao.maps.LatLng(35.1943965, 126.906854),
+        },
+        {
+          title: '32사단',
+          latlng: new kakao.maps.LatLng(36.4261676, 127.265855),
+        },
+        {
+          title: '35사단',
+          latlng: new kakao.maps.LatLng(38.0229686, 127.108939),
+        },
+        {
+          title: '36사단',
+          latlng: new kakao.maps.LatLng(37.3860504, 127.976255),
+        },
+        {
+          title: '37사단',
+          latlng: new kakao.maps.LatLng(36.7957225, 127.558144),
+        },
+        {
+          title: '39사단',
+          latlng: new kakao.maps.LatLng(35.2718812, 128.356916),
+        },
+        {
+          title: '50사단',
+          latlng: new kakao.maps.LatLng(35.9555618, 128.567838),
+        },
+        {
+          title: '51사단',
+          latlng: new kakao.maps.LatLng(37.2533463, 126.92036),
+        },
+        {
+          title: '55사단',
+          latlng: new kakao.maps.LatLng(37.2723595, 127.222537),
+        },
+        {
+          title: '육군훈련소',
+          latlng: new kakao.maps.LatLng(36.1052567, 127.097158),
+        },
+        {
+          title: '해병대훈련단',
+          latlng: new kakao.maps.LatLng(35.9751951, 129.418289),
+        },
+        {
+          title: '해군교육사령부',
+          latlng: new kakao.maps.LatLng(35.1486735, 128.684987),
+        },
+        {
+          title: '공군교육사령부',
+          latlng: new kakao.maps.LatLng(35.2039853, 128.144167),
+        },
+      ];
+
+      var positionsTraining = [
+        {
+          title: '해병9여단',
+          latlng: new kakao.maps.LatLng(33.2303972, 126.262397),
+        },
+        {
+          title: '해군 기초군사학교',
+          latlng: new kakao.maps.LatLng(35.1472139, 128.684309),
+        },
+        {
+          title: '31사단',
+          latlng: new kakao.maps.LatLng(35.1943965, 126.906854),
+        },
+        {
+          title: '32사단',
+          latlng: new kakao.maps.LatLng(36.4261676, 127.265855),
+        },
+        {
+          title: '35사단',
+          latlng: new kakao.maps.LatLng(38.0229686, 127.108939),
+        },
+        {
+          title: '36사단',
+          latlng: new kakao.maps.LatLng(37.3860504, 127.976255),
+        },
+        {
+          title: '37사단',
+          latlng: new kakao.maps.LatLng(36.7957225, 127.558144),
+        },
+        {
+          title: '50사단',
+          latlng: new kakao.maps.LatLng(35.9555618, 128.567838),
+        },
+        {
+          title: '51사단',
+          latlng: new kakao.maps.LatLng(37.2533463, 126.92036),
+        },
+        {
+          title: '55사단',
+          latlng: new kakao.maps.LatLng(37.2723595, 127.222537),
+        },
+        {
+          title: '육군훈련소',
+          latlng: new kakao.maps.LatLng(36.1052567, 127.097158),
+        },
+        {
+          title: '해병대훈련단',
+          latlng: new kakao.maps.LatLng(35.9751951, 127.154457),
+        },
+      ];
+
+      var positionsJudgment = [
+        {
+          title: '서울병역판정검사장',
+          latlng: new kakao.maps.LatLng(37.5561768, 126.9743835),
+        },
+        {
+          title: '대구·경북지방병무청',
+          latlng: new kakao.maps.LatLng(35.8772064, 128.734582),
+        },
+        {
+          title: '경인지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(37.2802067, 127.007336),
+        },
+        {
+          title: '광주·전남지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(35.1406049, 126.920984),
+        },
+        {
+          title: '대전·충남지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(36.3221771, 127.413861),
+        },
+        {
+          title: '강원지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(37.5051436, 126.918223),
+        },
+        {
+          title: '충북지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(36.6316254, 127.478361),
+        },
+        {
+          title: '전북지방병무청 병역판정검사장',
+          latlng: new kakao.maps.LatLng(35.8205158, 127.154457),
+        },
+      ];
+
+      positionsDivision.forEach(function (pos) {
+        var marker = createMarker(pos.latlng, pos.title, markerImageDivision);
+        markersDivision.push(marker);
+      });
+
+      positionsTraining.forEach(function (pos) {
+        var marker = createMarker(pos.latlng, pos.title, markerImageTraining);
+        markersTraining.push(marker);
+      });
+
+      positionsJudgment.forEach(function (pos) {
+        var marker = createMarker(pos.latlng, pos.title, markerImageJudgment);
+        markersJudgment.push(marker);
+      });
+
+      markerButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          const title = this.getAttribute('data-title');
+          const lat = parseFloat(this.getAttribute('data-lat'));
+          const lng = parseFloat(this.getAttribute('data-lng'));
+
+          // 여기에 지도 이동하는 코드를 추가합니다.
+          // 지도를 이동하고 해당 위치에 마커를 표시하는 코드를 작성하세요.
+        });
+      });
+    </script>
+  </body>
+  <script src="./kakao_geomap.js"></script>
+</html>
